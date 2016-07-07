@@ -1,9 +1,9 @@
-def organization = 'fabric8-quickstarts'
+def organisation = 'fabric8-quickstarts'
 
 def mavenVersion = 'maven-3.2.5'
 def jdkVersion = 'JDK8'
 
-repoApi = new URL("https://api.github.com/orgs/${organization}/repos")
+repoApi = new URL("https://api.github.com/orgs/${organisation}/repos")
 repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
   def repoName = it.name
@@ -25,7 +25,7 @@ repos.each {
         git {
           remote {
             github(
-                    "${organization}/${repoName}",
+                    "${organisation}/${repoName}",
                     'git'
             )
           }
