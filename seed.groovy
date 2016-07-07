@@ -1,4 +1,5 @@
 import jenkins.model.*
+
 import javax.xml.transform.stream.StreamSource
 
 def organisation = 'fabric8-quickstarts'
@@ -18,14 +19,11 @@ repos.each {
   }
 
   if (hasPom) {
-    // lets only do this for one job to start with!
-    if (repoName == "swarm-camel") {
-      def pullReqJobName = "${repoName}-pullreq".replaceAll('/', '-')
-      def pullReqMergeJobName = "${repoName}-pullreq-merge".replaceAll('/', '-')
+    def pullReqJobName = "${repoName}-pullreq".replaceAll('/', '-')
+    def pullReqMergeJobName = "${repoName}-pullreq-merge".replaceAll('/', '-')
 
-      createOrUpdateJob(pullReqJobName, pullReqXml(organisation, repoName))
-      createOrUpdateJob(pullReqMergeJobName, pullReqMergeXml(organisation, repoName))
-    }
+    createOrUpdateJob(pullReqJobName, pullReqXml(organisation, repoName))
+    createOrUpdateJob(pullReqMergeJobName, pullReqMergeXml(organisation, repoName))
   } else {
     println("ignoring project ${repoName} as we could not find a pom.xml")
   }
