@@ -13,47 +13,23 @@ repos.each {
   // lets only do this for one job to start with!
   if (repoName == "swarm-camel") {
     def xml = pullReqXml(organisation, repoName)
-    println "has XML: " + xml
-
-    def xmlStream = new ByteArrayInputStream(xml.getBytes())
-    Jenkins.instance.createProjectFromXML(jobName, xmlStream)
-
-/*
-def mavenVersion = 'maven-3.2.5'
-def jdkVersion = 'JDK8'
-
-    job(jobName) {
-      //logRotator(-1, 10)
-
-      scm {
-        git {
-          remote {
-            github(
-                    "${organisation}/${repoName}",
-                    'git'
-            )
-          }
-          branch('${ghprbActualCommit}')
-          //clean(true)
-          //createTag(false)
-          //relativeTargetDir('src/github.com/fabric8io/origin-schema-generator')
-        }
-      }
-      triggers {
-      }
-
-      steps {
-          maven {
-            jdk(jdkVersion)
-            mavenInstallation(mavenVersion)
-
-            goals('clean install -U -Ddocker.skip=true')
-          }
-      }
-
-    }
-*/
+    createOrUpdateJob(jobName, xml)
   }
+}
+
+def createOrUpdateJob(String jobName, String xml) {
+  println "Updating job ${jobName}..."
+  //println "has XML: " + xml
+  def xmlStream = new ByteArrayInputStream(xml.getBytes())
+
+  def item = Jenkins.instance.getItemByFullName(jobName)
+  if (item == null) {
+    Jenkins.instance.createProjectFromXML(jobName, xmlStream)
+  } else {
+    item.updateByXml(xmlStream)
+    item.save()
+  }
+  println "Updated job ${jobName}"
 }
 
 def pullReqXml(String organisation, String repoName) {
