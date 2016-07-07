@@ -1,3 +1,5 @@
+import jenkins.model.*
+
 def organisation = 'fabric8-quickstarts'
 
 repoApi = new URL("https://api.github.com/orgs/${organisation}/repos")
@@ -12,6 +14,10 @@ repos.each {
   if (repoName == "swarm-camel") {
     def xml = pullReqXml(organisation, repoName)
     println "has XML: " + xml
+
+    def xmlStream = new ByteArrayInputStream( configXml.getBytes() )
+    Jenkins.instance.createProjectFromXML(jobName, xmlStream)
+
 
 /*
 def mavenVersion = 'maven-3.2.5'
