@@ -18,7 +18,7 @@ repos.each {
         remote {
           github(
                   "${organization}/${jobName}",
-                  '${ghprbActualCommit}'
+                  '${ghprbActual  Commit}'
           )
         }
         branch('master')
