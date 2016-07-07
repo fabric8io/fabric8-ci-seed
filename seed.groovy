@@ -19,10 +19,10 @@ repos.each {
           remote {
             github(
                     "${organization}/${jobName}",
-                    '${ghprbActual  Commit}'
+                    'git'
             )
           }
-          branch('master')
+          branch('${ghprbActual}')
           //clean(true)
           //createTag(false)
           //relativeTargetDir('src/github.com/fabric8io/origin-schema-generator')
