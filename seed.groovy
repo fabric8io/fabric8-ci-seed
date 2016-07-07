@@ -1,4 +1,8 @@
 def organization = 'fabric8-quickstarts'
+
+def mavenVersion = 'maven-3.2.5'
+def jdkVersion = 'JDK8'
+
 repoApi = new URL("https://api.github.com/orgs/${organization}/repos")
 repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
@@ -9,20 +13,18 @@ repos.each {
 
   // lets only do this for one job to start with!
   if (repoName == "swarm-camel") {
-    mavenJob(jobName) {
+    job(jobName) {
       //logRotator(-1, 10)
-      jdk('JDK8')
-      mavenInstallation('3.2.5')
 
       scm {
         git {
           remote {
             github(
-                    "${organization}/${jobName}",
+                    "${organization}/${repoName}",
                     'git'
             )
           }
-          branch('${ghprbActual}')
+          branch('${ghprbActualCommit}')
           //clean(true)
           //createTag(false)
           //relativeTargetDir('src/github.com/fabric8io/origin-schema-generator')
@@ -30,7 +32,16 @@ repos.each {
       }
       triggers {
       }
-      goals('clean install -U -Ddocker.skip=true')
+
+      steps {
+          maven {
+            jdk(jdkVersion)
+            mavenInstallation(mavenVersion)
+
+            goals('clean install -U -Ddocker.skip=true')
+          }
+      }
+
     }
   }
 }
