@@ -1,4 +1,5 @@
 import jenkins.model.*
+import javax.xml.transform.stream.StreamSource
 
 def organisation = 'fabric8-quickstarts'
 
