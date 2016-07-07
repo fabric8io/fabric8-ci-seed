@@ -1,8 +1,5 @@
 def organisation = 'fabric8-quickstarts'
 
-def mavenVersion = 'maven-3.2.5'
-def jdkVersion = 'JDK8'
-
 repoApi = new URL("https://api.github.com/orgs/${organisation}/repos")
 repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
@@ -13,11 +10,13 @@ repos.each {
 
   // lets only do this for one job to start with!
   if (repoName == "swarm-camel") {
-    def xml = pullReqXml(repoName)
+    def xml = pullReqXml(organisation, repoName)
     println "has XML: " + xml
 
-
 /*
+def mavenVersion = 'maven-3.2.5'
+def jdkVersion = 'JDK8'
+
     job(jobName) {
       //logRotator(-1, 10)
 
@@ -52,7 +51,7 @@ repos.each {
   }
 }
 
-def pullReqXml(String repoName) {
+def pullReqXml(String organisation, String repoName) {
   return "<?xml version='1.0' encoding='UTF-8'?>\n" +
           "<project>\n" +
           "  <actions/>\n" +
