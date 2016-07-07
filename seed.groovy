@@ -138,7 +138,7 @@ def pullReqMergeXml(String organisation, String repoName) {
           "  <keepDependencies>false</keepDependencies>\n" +
           "  <properties>\n" +
           "    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin=\"github@1.17.1\">\n" +
-          "      <projectUrl>https://github.com/fabric8-quickstarts/cdi-camel/</projectUrl>\n" +
+          "      <projectUrl>https://github.com/${organisation}/${repoName}/</projectUrl>\n" +
           "      <displayName></displayName>\n" +
           "    </com.coravy.hudson.plugins.github.GithubProjectProperty>\n" +
           "  </properties>\n" +
@@ -148,7 +148,7 @@ def pullReqMergeXml(String organisation, String repoName) {
           "      <hudson.plugins.git.UserRemoteConfig>\n" +
           "        <name>origin</name>\n" +
           "        <refspec>+refs/pull/*:refs/remotes/origin/pr/*</refspec>\n" +
-          "        <url>git://github.com/fabric8-quickstarts/cdi-camel.git</url>\n" +
+          "        <url>git://github.com/${organisation}/${repoName}.git</url>\n" +
           "      </hudson.plugins.git.UserRemoteConfig>\n" +
           "    </userRemoteConfigs>\n" +
           "    <branches>\n" +
