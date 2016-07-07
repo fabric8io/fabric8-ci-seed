@@ -20,13 +20,14 @@ repos.each {
 def createOrUpdateJob(String jobName, String xml) {
   println "Updating job ${jobName}..."
   //println "has XML: " + xml
-  def xmlStream = new ByteArrayInputStream(xml.getBytes())
 
   def item = Jenkins.instance.getItemByFullName(jobName)
   if (item == null) {
+    def xmlStream = new ByteArrayInputStream(xml.getBytes())
     Jenkins.instance.createProjectFromXML(jobName, xmlStream)
   } else {
-    item.updateByXml(xmlStream)
+    xmlSource = new StreamSource(new StringReader(xml))
+    item.updateByXml(xmlSource)
     item.save()
   }
   println "Updated job ${jobName}"
