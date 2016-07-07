@@ -14,17 +14,19 @@ repos.each {
       jdk('JDK8')
       mavenInstallation('3.2.5')
 
-      git {
-        remote {
-          github(
-                  "${organization}/${jobName}",
-                  '${ghprbActual  Commit}'
-          )
+      scm {
+        git {
+          remote {
+            github(
+                    "${organization}/${jobName}",
+                    '${ghprbActual  Commit}'
+            )
+          }
+          branch('master')
+          //clean(true)
+          //createTag(false)
+          //relativeTargetDir('src/github.com/fabric8io/origin-schema-generator')
         }
-        branch('master')
-        //clean(true)
-        //createTag(false)
-        //relativeTargetDir('src/github.com/fabric8io/origin-schema-generator')
       }
       triggers {
       }
