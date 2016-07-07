@@ -8,15 +8,26 @@ repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
   def repoName = it.name
 
-  println "${repoName}"
+  // lets check if the repo has a pom.xml
+  pomUrl = new URL("https://raw.githubusercontent.com/${organisation}/${repoName}/master/pom.xml")
+  def hasPom = false
+  try {
+    hasPom = !pomUrl.text.isEmpty()
+  } catch (e) {
+    // ignore
+  }
 
-  // lets only do this for one job to start with!
-  if (repoName == "swarm-camel") {
-    def pullReqJobName = "${repoName}-pullreq".replaceAll('/', '-')
-    def pullReqMergeJobName = "${repoName}-pullreq-merge".replaceAll('/', '-')
+  if (hasPom) {
+    // lets only do this for one job to start with!
+    if (repoName == "swarm-camel") {
+      def pullReqJobName = "${repoName}-pullreq".replaceAll('/', '-')
+      def pullReqMergeJobName = "${repoName}-pullreq-merge".replaceAll('/', '-')
 
-    createOrUpdateJob(pullReqJobName, pullReqXml(organisation, repoName))
-    createOrUpdateJob(pullReqMergeJobName, pullReqMergeXml(organisation, repoName))
+      createOrUpdateJob(pullReqJobName, pullReqXml(organisation, repoName))
+      createOrUpdateJob(pullReqMergeJobName, pullReqMergeXml(organisation, repoName))
+    }
+  } else {
+    println("ignoring project ${repoName} as we could not find a pom.xml")
   }
 }
 
