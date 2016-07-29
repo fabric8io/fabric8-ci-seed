@@ -4,7 +4,7 @@ import javax.xml.transform.stream.StreamSource
 
 def organisation = 'fabric8-quickstarts'
 
-repoApi = new URL("https://api.github.com/orgs/${organisation}/repos")
+repoApi = new URL("https://api.github.com/orgs/${organisation}/repos?per_page=5000")
 repos = new groovy.json.JsonSlurper().parse(repoApi.newReader())
 repos.each {
   def repoName = it.name
