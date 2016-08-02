@@ -68,21 +68,13 @@ def pullReqXml(String organisation, String repoName) {
           "    </userRemoteConfigs>\n" +
           "    <branches>\n" +
           "      <hudson.plugins.git.BranchSpec>\n" +
-          "        <name>\${ghprbActualCommit}</name>\n" +
+          "        <name>\${sha1}</name>\n" +
           "      </hudson.plugins.git.BranchSpec>\n" +
           "    </branches>\n" +
           "    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>\n" +
           "    <submoduleCfg class=\"list\"/>\n" +
           "    <extensions>\n" +
           "      <hudson.plugins.git.extensions.impl.CleanCheckout/>\n" +
-          "      <hudson.plugins.git.extensions.impl.PreBuildMerge>\n" +
-          "        <options>\n" +
-          "          <mergeRemote>origin</mergeRemote>\n" +
-          "          <mergeTarget>\${ghprbTargetBranch}</mergeTarget>\n" +
-          "          <mergeStrategy>default</mergeStrategy>\n" +
-          "          <fastForwardMode>NO_FF</fastForwardMode>\n" +
-          "        </options>\n" +
-          "      </hudson.plugins.git.extensions.impl.PreBuildMerge>\n" +
           "    </extensions>\n" +
           "  </scm>\n" +
           "  <canRoam>true</canRoam>\n" +
@@ -162,21 +154,13 @@ def pullReqMergeXml(String organisation, String repoName) {
           "    </userRemoteConfigs>\n" +
           "    <branches>\n" +
           "      <hudson.plugins.git.BranchSpec>\n" +
-          "        <name>\${ghprbActualCommit}</name>\n" +
+          "        <name>\${sha1}</name>\n" +
           "      </hudson.plugins.git.BranchSpec>\n" +
           "    </branches>\n" +
           "    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>\n" +
           "    <submoduleCfg class=\"list\"/>\n" +
           "    <extensions>\n" +
           "      <hudson.plugins.git.extensions.impl.CleanCheckout/>\n" +
-          "      <hudson.plugins.git.extensions.impl.PreBuildMerge>\n" +
-          "        <options>\n" +
-          "          <mergeRemote>origin</mergeRemote>\n" +
-          "          <mergeTarget>\${ghprbTargetBranch}</mergeTarget>\n" +
-          "          <mergeStrategy>default</mergeStrategy>\n" +
-          "          <fastForwardMode>NO_FF</fastForwardMode>\n" +
-          "        </options>\n" +
-          "      </hudson.plugins.git.extensions.impl.PreBuildMerge>\n" +
           "    </extensions>\n" +
           "  </scm>\n" +
           "  <canRoam>true</canRoam>\n" +
