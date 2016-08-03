@@ -20,21 +20,13 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>${ghprbActualCommit}</name>
+        <name>${sha1}</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <submoduleCfg class="list"/>
     <extensions>
       <hudson.plugins.git.extensions.impl.CleanCheckout/>
-      <hudson.plugins.git.extensions.impl.PreBuildMerge>
-        <options>
-          <mergeRemote>origin</mergeRemote>
-          <mergeTarget>${ghprbTargetBranch}</mergeTarget>
-          <mergeStrategy>default</mergeStrategy>
-          <fastForwardMode>NO_FF</fastForwardMode>
-        </options>
-      </hudson.plugins.git.extensions.impl.PreBuildMerge>
     </extensions>
   </scm>
   <canRoam>true</canRoam>
