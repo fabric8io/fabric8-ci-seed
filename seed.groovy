@@ -95,7 +95,7 @@ def pullReqXml(String organisation, String repoName) {
           "      <onlyTriggerPhrase>false</onlyTriggerPhrase>\n" +
           "      <useGitHubHooks>true</useGitHubHooks>\n" +
           "      <permitAll>false</permitAll>\n" +
-          "      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino</whitelist>\n" +
+          "      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</whitelist>\n" +
           "      <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>\n" +
           "      <displayBuildErrorsOnDownstreamBuilds>false</displayBuildErrorsOnDownstreamBuilds>\n" +
           "      <whiteListTargetBranches>\n" +
@@ -181,7 +181,7 @@ def pullReqMergeXml(String organisation, String repoName) {
           "      <onlyTriggerPhrase>true</onlyTriggerPhrase>\n" +
           "      <useGitHubHooks>true</useGitHubHooks>\n" +
           "      <permitAll>false</permitAll>\n" +
-          "      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino</whitelist>\n" +
+          "      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</whitelist>\n" +
           "      <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>\n" +
           "      <displayBuildErrorsOnDownstreamBuilds>false</displayBuildErrorsOnDownstreamBuilds>\n" +
           "      <whiteListTargetBranches>\n" +

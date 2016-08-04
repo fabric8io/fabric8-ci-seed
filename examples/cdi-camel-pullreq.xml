@@ -47,7 +47,7 @@
       <onlyTriggerPhrase>false</onlyTriggerPhrase>
       <useGitHubHooks>true</useGitHubHooks>
       <permitAll>false</permitAll>
-      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino</whitelist>
+      <whitelist> jstrachan janstey rawlingsj davsclaus jimmidyson rhuss oscerd dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</whitelist>
       <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
       <displayBuildErrorsOnDownstreamBuilds>false</displayBuildErrorsOnDownstreamBuilds>
       <whiteListTargetBranches>
