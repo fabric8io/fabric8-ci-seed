@@ -87,7 +87,7 @@ def pullReqXml(String organisation, String repoName) {
           "      <spec>H/5 * * * *</spec>\n" +
           "      <latestVersion>3</latestVersion>\n" +
           "      <configVersion>3</configVersion>\n" +
-          "      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan</adminlist>\n" +
+          "      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</adminlist>\n" +
           "      <allowMembersOfWhitelistedOrgsAsAdmin>false</allowMembersOfWhitelistedOrgsAsAdmin>\n" +
           "      <orgslist></orgslist>\n" +
           "      <cron>H/5 * * * *</cron>\n" +
@@ -173,7 +173,7 @@ def pullReqMergeXml(String organisation, String repoName) {
           "      <spec>H/5 * * * *</spec>\n" +
           "      <latestVersion>3</latestVersion>\n" +
           "      <configVersion>3</configVersion>\n" +
-          "      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan</adminlist>\n" +
+          "      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</adminlist>\n" +
           "      <allowMembersOfWhitelistedOrgsAsAdmin>false</allowMembersOfWhitelistedOrgsAsAdmin>\n" +
           "      <orgslist></orgslist>\n" +
           "      <cron>H/5 * * * *</cron>\n" +

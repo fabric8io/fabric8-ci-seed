@@ -39,7 +39,7 @@
       <spec>H/5 * * * *</spec>
       <latestVersion>3</latestVersion>
       <configVersion>3</configVersion>
-      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan</adminlist>
+      <adminlist>jimmidyson iocanel rawlingsj davsclaus jstrachan dhirajsb chirino nicolaferraro lburgazzoli jamesnetherton astefanutti</adminlist>
       <allowMembersOfWhitelistedOrgsAsAdmin>false</allowMembersOfWhitelistedOrgsAsAdmin>
       <orgslist></orgslist>
       <cron>H/5 * * * *</cron>
