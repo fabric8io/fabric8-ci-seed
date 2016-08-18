@@ -38,7 +38,7 @@ repos.each {
     createOrUpdateJob(pullReqJobName, prXml)
     def prMergeXml = pullReqMergeXml(organisation, repoName)
     if (hasSettingsXml) {
-      prXml = prMergeXml.replaceAll("</targets>", " -s configuration/settings.xml</targets>")
+      prMergeXml = prMergeXml.replaceAll("</targets>", " -s configuration/settings.xml</targets>")
     }
     createOrUpdateJob(pullReqMergeJobName, prMergeXml)
   } else {
