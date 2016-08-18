@@ -18,12 +18,29 @@ repos.each {
     // ignore
   }
 
+// lets check if the repo has a settings.xml
+  settingsUrl = new URL("https://raw.githubusercontent.com/${organisation}/${repoName}/master/configuration/settings.xml")
+  def hasSettingsXml = false
+  try {
+    hasSettingsXml = !settingsUrl.text.isEmpty()
+  } catch (e) {
+    // ignore
+  }
+
   if (hasPom) {
     def pullReqJobName = "${repoName}-pullreq".replaceAll('/', '-')
     def pullReqMergeJobName = "${repoName}-pullreq-merge".replaceAll('/', '-')
 
-    createOrUpdateJob(pullReqJobName, pullReqXml(organisation, repoName))
-    createOrUpdateJob(pullReqMergeJobName, pullReqMergeXml(organisation, repoName))
+    def prXml = pullReqXml(organisation, repoName)
+    if (hasSettingsXml) {
+      prXml = prXml.replaceAll("</targets>", " -s configuration/settings.xml</targets>")
+    }
+    createOrUpdateJob(pullReqJobName, prXml)
+    def prMergeXml = pullReqMergeXml(organisation, repoName)
+    if (hasSettingsXml) {
+      prMergeXml = prMergeXml.replaceAll("</targets>", " -s configuration/settings.xml</targets>")
+    }
+    createOrUpdateJob(pullReqMergeJobName, prMergeXml)
   } else {
     println("ignoring project ${repoName} as we could not find a pom.xml")
   }
