@@ -137,7 +137,7 @@ def pullReqXml(String organisation, String repoName) {
           "  <builders>\n" +
           "    <hudson.tasks.Maven>\n" +
           "      <targets>clean install -U -Ddocker.skip.build=true</targets>\n" +
-          "      <mavenName>maven-3.2.5</mavenName>\n" +
+          "      <mavenName>maven-3.3.9</mavenName>\n" +
           "      <usePrivateRepository>false</usePrivateRepository>\n" +
           "      <settings class=\"jenkins.mvn.DefaultSettingsProvider\"/>\n" +
           "      <globalSettings class=\"jenkins.mvn.DefaultGlobalSettingsProvider\"/>\n" +
@@ -223,7 +223,7 @@ def pullReqMergeXml(String organisation, String repoName) {
           "  <builders>\n" +
           "    <hudson.tasks.Maven>\n" +
           "      <targets>clean install -U -Ddocker.skip.build=true</targets>\n" +
-          "      <mavenName>maven-3.2.5</mavenName>\n" +
+          "      <mavenName>maven-3.3.9</mavenName>\n" +
           "      <usePrivateRepository>false</usePrivateRepository>\n" +
           "      <settings class=\"jenkins.mvn.DefaultSettingsProvider\"/>\n" +
           "      <globalSettings class=\"jenkins.mvn.DefaultGlobalSettingsProvider\"/>\n" +
